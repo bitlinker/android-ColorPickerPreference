@@ -7,6 +7,9 @@ ColorPickerPreference class by Sergey Margaritov.
 Packed by Sergey Margaritov.
 Packed again and made Gradle compatible by Vincent Fischer.
 
+Bitlinker:
+  - Migrated to AndroidX preference lib
+
 Features
 ========
 
