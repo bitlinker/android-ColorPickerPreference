@@ -24,18 +24,22 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.preference.Preference;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import androidx.preference.Preference;
+import androidx.preference.PreferenceViewHolder;
+
 /**
  * A preference type that allows a user to choose a time
  *
  * @author Sergey Margaritov
+ *
+ * @author bitlinker: added AndroidX Preference lib compatibility (https://developer.android.com/jetpack/androidx/releases/preference)
  */
-public class ColorPickerPreference
+public class ColorPickerPreferenceCompat
         extends
         Preference
         implements
@@ -49,17 +53,17 @@ public class ColorPickerPreference
     private boolean mAlphaSliderEnabled = false;
     private boolean mHexValueEnabled = false;
 
-    public ColorPickerPreference(Context context) {
+    public ColorPickerPreferenceCompat(Context context) {
         super(context);
         init(context, null);
     }
 
-    public ColorPickerPreference(Context context, AttributeSet attrs) {
+    public ColorPickerPreferenceCompat(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs);
     }
 
-    public ColorPickerPreference(Context context, AttributeSet attrs, int defStyle) {
+    public ColorPickerPreferenceCompat(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init(context, attrs);
     }
@@ -97,9 +101,9 @@ public class ColorPickerPreference
     }
 
     @Override
-    protected void onBindView(View view) {
-        super.onBindView(view);
-        mView = view;
+    public void onBindViewHolder(PreferenceViewHolder holder) {
+        super.onBindViewHolder(holder);
+        mView = holder.itemView;
         setPreviewColor();
     }
 

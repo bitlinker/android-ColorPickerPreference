@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="net.margaritov.preference.colorpicker">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="net.margaritov.preference.colorpicker.test">
 
     <application
         android:icon="@drawable/icon"
-        android:label="@string/app_name">
+        android:label="@string/app_name"
+        android:theme="@style/Theme.AppCompat"
+        tools:ignore="AllowBackup,GoogleAppIndexingWarning">
         <activity
-            android:name="net.margaritov.preference.colorpicker.Test"
+            android:name="net.margaritov.preference.colorpicker.testapp.SettingsTest"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -15,6 +18,5 @@
         </activity>
 
     </application>
-    <uses-sdk android:minSdkVersion="7" />
 
 </manifest>

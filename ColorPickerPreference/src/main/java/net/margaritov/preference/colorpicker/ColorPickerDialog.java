@@ -116,7 +116,7 @@ public class ColorPickerDialog
                     String s = mHexVal.getText().toString();
                     if (s.length() > 5 || s.length() < 10) {
                         try {
-                            int c = ColorPickerPreference.convertToColorInt(s.toString());
+                            int c = ColorPickerPreferenceCompat.convertToColorInt(s.toString());
                             mColorPicker.setColor(c, true);
                             mHexVal.setTextColor(mHexDefaultTextColor);
                         } catch (IllegalArgumentException e) {
@@ -185,9 +185,9 @@ public class ColorPickerDialog
 
     private void updateHexValue(int color) {
         if (getAlphaSliderVisible()) {
-            mHexVal.setText(ColorPickerPreference.convertToARGB(color).toUpperCase(Locale.getDefault()));
+            mHexVal.setText(ColorPickerPreferenceCompat.convertToARGB(color).toUpperCase(Locale.getDefault()));
         } else {
-            mHexVal.setText(ColorPickerPreference.convertToRGB(color).toUpperCase(Locale.getDefault()));
+            mHexVal.setText(ColorPickerPreferenceCompat.convertToRGB(color).toUpperCase(Locale.getDefault()));
         }
         mHexVal.setTextColor(mHexDefaultTextColor);
     }
